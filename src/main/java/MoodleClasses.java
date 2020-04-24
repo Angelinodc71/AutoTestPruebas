@@ -52,3 +52,9 @@ class PAssignment {
     String id;
     String cmid;
 }
+
+class Forum {
+    String name;
+    String subject;
+}
+
