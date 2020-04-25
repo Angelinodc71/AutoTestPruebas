@@ -14,7 +14,6 @@ class Config {
     static String password = "-Bakugan8";
     static String courseId = "2";
     static String forumid = "1";
-
 }
 
 
@@ -42,14 +41,13 @@ public class Main {
             System.out.println("TOKEN = " + response.token);
             token = response.token;
         });
-        forum();
+        getDiscussions();
     }
 
-    private static void forum() {
+    private static void getDiscussions() {
         System.out.println("forum...");
-        api.forum(token, Config.forumid).enqueue((Callback<Forum>) response -> {
-            System.out.println("NAME: "+response.name);
-            System.out.println("SUBJECT: "+response.subject);
+        api.discussions(token, Config.forumid).enqueue((Callback<Discussions>) response -> {
+            response.discussions.forEach(d -> System.out.println( d.name+" "+ d.message+" "+ d.subject));
         });
     }
 

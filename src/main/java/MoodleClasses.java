@@ -53,8 +53,14 @@ class PAssignment {
     String cmid;
 }
 
-class Forum {
+class Discussions {
+    List<Discussion> discussions;
+}
+
+class Discussion {
+    int id;
     String name;
     String subject;
+    String message;
 }
 

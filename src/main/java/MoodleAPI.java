@@ -9,8 +9,8 @@ public interface MoodleAPI {
     @GET("login/token.php?service=moodle_mobile_app")
     Call<Token> login(@Query("username") String username, @Query("password") String password);
 
-    @GET("webservice/rest/server.php?wsfunction=mod_forum_get_forum_discussions_paginated&moodlewsrestformat=json")
-    Call<Forum> forum(@Query("wstoken") String wstoken, @Query("forumid") String forumid);
+    @GET("webservice/rest/server.php?moodlewsrestformat=json&wsfunction=mod_forum_get_forum_discussions_paginated")
+    Call<Discussions> discussions(@Query("wstoken") String wstoken, @Query("forumid") String forumid);
 
 //    @GET("webservice/rest/server.php?wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json")
 //    Call<List<Student>> students(@Query("wstoken") String wstoken, @Query("courseid") String courseId);
