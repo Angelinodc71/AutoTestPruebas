@@ -40,14 +40,14 @@ public class Main {
         api.login(Config.username, Config.password).enqueue((Callback<Token>) response -> {
             System.out.println("TOKEN = " + response.token);
             token = response.token;
+            getDiscussions();
         });
-        getDiscussions();
     }
 
     private static void getDiscussions() {
         System.out.println("forum...");
         api.discussions(token, Config.forumid).enqueue((Callback<Discussions>) response -> {
-            response.discussions.forEach(d -> System.out.println( d.name+" "+ d.message+" "+ d.subject));
+            response.discussions.forEach(d -> System.out.format("%s%n%s%n%s%n%s%n-----%n", d.id, d.name, d.message, d.subject));
         });
     }
 
